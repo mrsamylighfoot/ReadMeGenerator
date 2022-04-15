@@ -34,7 +34,7 @@ const questions = [
     },
     {
         type: 'list',
-        message: 'License: Do you want to include an MIT License?',
+        message: 'License: Do you want to include a License?',
         name: 'license',
         choices: ['MIT', 'ISC', 'none'],
     },
