@@ -1,5 +1,4 @@
 // TODO: Include packages needed for this application
-const licenseBadger = require('license-badger');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const markdown = require('./utils/generateMarkdown');
@@ -36,7 +35,7 @@ const questions = [
         type: 'list',
         message: 'License: Do you want to include a License?',
         name: 'license',
-        choices: ['MIT', 'ISC', 'none'],
+        choices: ['MIT', 'GPL', 'none'],
     },
     {
         type: 'list',
