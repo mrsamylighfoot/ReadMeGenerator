@@ -70,17 +70,13 @@ const questions = [
         name: 'email'
     },
 ]
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    
-}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then((res) => {
         console.log(res);
-        fs.writeFile('README.md', JSON.stringify(res), data),
+        fs.writeFile('README.md', generateMarkdown(res)),
         console.log('Generating ReadMe');
     })
 }
