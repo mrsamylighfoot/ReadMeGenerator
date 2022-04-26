@@ -2,7 +2,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const markdown = require('./utils/generateMarkdown');
-const util = require('util.promisify');
+const path = require('path');
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -44,7 +45,7 @@ const questions = [
         choices: ['yes', 'no'],
     },
     {
-        type: 'input'
+        type: 'input',
         message: 'Features: If your project has a lot of features, list them here.',
         name: 'features',
     },
@@ -75,7 +76,7 @@ function init() {
     inquirer.prompt(questions)
     .then((res) => {
         console.log(res);
-        fs.writeFile('README.md', generateMarkdown(res)),
+        fs.writeFileSync(path.join(process.cwd(),'README.md'), markdown({...res})),
         console.log('Generating ReadMe');
     })
 }
